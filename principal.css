@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    
+}
+
+.input-task{
+    border: none;
+    border-radius: 5px;
+    width: 300px;
+    height: 40px;
+    padding-left: 15px;
+}
+
+.button-task:hover{
+    opacity: 0.8;
+
+}
+.button-task:active{
+    opacity: 0.6;
+}
+
+.button-task{
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    background-color: rgb(222, 218, 218);
+    color: rgb(0, 0, 0);
+    padding: 0 10px;
+    float: right;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.list-task{
+    width: 100%;
+    list-style: none;
+    margin-top: 30px;
+    
+}
+
+.task{
+    background-color: antiquewhite;
+    box-shadow: 1px 4px 6px rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 15px;
+    border-radius: 4px;
+    margin-bottom: 27px;
+    cursor: pointer;
+}
+
+img{
+    height: 25px;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.task:hover img {
+    opacity: 1;
+}
+
+.container{
+    background-color: beige;
+    width: 500px;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 200px auto 0;
+    opacity: 0.9;
+}
+
+.done {
+    background-color: #8fac55;
+    text-decoration: line-through;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    animation: trocarFundo 120s infinite;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+@keyframes trocarFundo {
+    0% {
+        background-image: url('/img/background.to-do.jpg');
+    }
+    33% {
+        background-image: url('/img/imagem.to-do1.jpg');
+    }
+    66% {
+        background-image: url('/img/imagem.to-do2.jpg');
+    }
+    100% {
+        background-image: url('/img/imagem.to-do3.jpg');
+    }
+}
+
