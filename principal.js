@@ -33,7 +33,7 @@ function mostrarTarefas() {
 
     minhaListaDeItens.forEach((item, posicao) => {
         NovaLi = NovaLi + `
-        <li class="task ${item.concluida && 'done'}">
+        <li class="task ${item.concluida ? 'done' : ''}">
             <img src="./img/checked.png" alt="concluir.tarefa" onclick='concluirTarefa(${posicao})'/>
             <p>${item.tarefa}</p>
             <img src="./img/delete.png" alt="deletar.tarefa" onclick='deletarItem(${posicao})'/>
@@ -72,3 +72,12 @@ input.addEventListener('keypress', function(event) {
 });
 
 window.addEventListener('load', recarregartarefas);
+
+// MODO DARK OR LIGHT //
+
+const toggleSwitch = document.querySelector('#toggle');
+
+toggleSwitch.addEventListener('change', function() {
+    document.body.classList.toggle('dark-mode');
+    document.body.classList.toggle('light-mode');
+});

@@ -70,7 +70,19 @@ img{
     border-radius: 12px;
     padding: 20px;
     margin: 200px auto 0;
-    opacity: 0.9;
+    opacity: 0.9;  
+}
+
+.light-mode .container {
+    box-shadow: 14px 11px 16px 10px rgba(0, 0, 0, 0.81);
+    -webkit-box-shadow: 14px 11px 16px 9px rgba(0, 0, 0, 0.81);
+    -moz-box-shadow: 14px 11px 16px 10px rgba(0, 0, 0, 0.81);
+}
+
+.dark-mode .container {
+    box-shadow: 14px 11px 16px 9px rgba(255, 255, 255, 0.5); /* sombra branca no modo escuro */
+    -webkit-box-shadow: 14px 1px 16px 9px rgba(255, 255, 255, 0.5);
+    -moz-box-shadow: 14px 13px 16px 9px rgba(255, 255, 255, 0.5);
 }
 
 .done {
@@ -88,6 +100,7 @@ body {
     height: 100vh;
 }
 
+/*
 @keyframes trocarFundo {
     0% {
         background-image: url('/img/background.to-do.jpg');
@@ -103,3 +116,58 @@ body {
     }
 }
 
+/* MODO DARK OR LIGHT */
+.switch {
+    position: relative;
+    width: 60px;
+    height: 30px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 34px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: #333;
+}
+
+input:checked + .slider:before {
+    transform: translateX(30px);
+}
+
+body.dark-mode {
+    background-color: #000;
+    color: #fff;
+}
+
+body.light-mode {
+    background-color: #fff;
+    color: #000;
+}
+
+
+/* MODO DARK OR LIGHT */
