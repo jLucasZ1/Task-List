@@ -1,12 +1,13 @@
+/* RESET DE ESTILO BÁSICO */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
-    
 }
 
-.input-task{
+/* ESTILO DO INPUT PARA ADICIONAR TAREFAS */
+.input-task {
     border: none;
     border-radius: 5px;
     width: 300px;
@@ -14,15 +15,8 @@
     padding-left: 15px;
 }
 
-.button-task:hover{
-    opacity: 0.8;
-
-}
-.button-task:active{
-    opacity: 0.6;
-}
-
-.button-task{
+/* ESTILO DO BOTÃO "INCLUIR" */
+.button-task {
     border: none;
     border-radius: 5px;
     height: 40px;
@@ -33,16 +27,26 @@
     cursor: pointer;
     font-size: 14px;
     font-weight: 700;
+    transition: opacity 0.3s ease-in-out;
 }
 
-.list-task{
+.button-task:hover {
+    opacity: 0.8;
+}
+
+.button-task:active {
+    opacity: 0.6;
+}
+
+/* LISTA DE TAREFAS */
+.list-task {
     width: 100%;
     list-style: none;
     margin-top: 30px;
-    
 }
 
-.task{
+/* CADA ITEM DA LISTA DE TAREFAS */
+.task {
     background-color: antiquewhite;
     box-shadow: 1px 4px 6px rgb(0, 0, 0);
     display: flex;
@@ -52,44 +56,56 @@
     border-radius: 4px;
     margin-bottom: 27px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-img{
-    height: 25px;
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
+/* Mudança de cor da lista de tarefas para modo claro */
+.light-mode .task {
+    background-color: antiquewhite;
+}
+
+/* Mudança de cor da lista de tarefas para modo escuro */
+.dark-mode .task {
+    background-color: #333;
+    color: #fff;
 }
 
 .task:hover img {
     opacity: 1;
 }
 
-.container{
+img {
+    height: 25px;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* CONTAINER CENTRALIZADO */
+.container {
     background-color: beige;
     width: 500px;
     border-radius: 12px;
     padding: 20px;
     margin: 200px auto 0;
-    opacity: 0.9;  
+    opacity: 0.9;
 }
 
+/* SOMBREAMENTO DIFERENTE PARA MODOS CLARO E ESCURO */
 .light-mode .container {
     box-shadow: 14px 11px 16px 10px rgba(0, 0, 0, 0.81);
-    -webkit-box-shadow: 14px 11px 16px 9px rgba(0, 0, 0, 0.81);
-    -moz-box-shadow: 14px 11px 16px 10px rgba(0, 0, 0, 0.81);
 }
 
 .dark-mode .container {
-    box-shadow: 14px 11px 16px 9px rgba(255, 255, 255, 0.5); /* sombra branca no modo escuro */
-    -webkit-box-shadow: 14px 1px 16px 9px rgba(255, 255, 255, 0.5);
-    -moz-box-shadow: 14px 13px 16px 9px rgba(255, 255, 255, 0.5);
+    box-shadow: 14px 11px 16px 9px rgba(255, 255, 255, 0.5);
 }
 
+/* TAREFAS COMPLETAS */
 .done {
     background-color: #8fac55;
     text-decoration: line-through;
 }
 
+/* ESTILO GERAL DO BODY */
 body {
     margin: 0;
     padding: 0;
@@ -98,29 +114,30 @@ body {
     background-size: cover;
     background-position: center;
     height: 100vh;
+    transition: background-image 0.5s ease-in-out;
 }
 
-/*
-@keyframes trocarFundo {
-    0% {
-        background-image: url('/img/background.to-do.jpg');
-    }
-    33% {
-        background-image: url('/img/imagem.to-do1.jpg');
-    }
-    66% {
-        background-image: url('/img/imagem.to-do2.jpg');
-    }
-    100% {
-        background-image: url('/img/imagem.to-do3.jpg');
-    }
+/* MODO ESCURO E CLARO */
+body.dark-mode {
+    background-color: #000;
+    color: #fff;
+    background-image: url('./img/dark.mode1.jpg');
 }
 
-/* MODO DARK OR LIGHT */
+body.light-mode {
+    background-color: #fff;
+    color: #000;
+    background-image: url('./img/white.theme1.jpg');
+}
+
+/* CHAVEADOR DE MODO ESCURO/CLARO */
 .switch {
-    position: relative;
-    width: 60px;
+    position: fixed;
+    top: 50px;
+    right: 30px;
+    width: 70px;
     height: 30px;
+    z-index: 1000;
 }
 
 .switch input {
@@ -151,23 +168,77 @@ body {
     transition: 0.4s;
 }
 
+/* Quando o input estiver marcado (modo escuro ativado) */
 input:checked + .slider {
     background-color: #333;
 }
 
 input:checked + .slider:before {
-    transform: translateX(30px);
+    transform: translateX(40px);
 }
 
-body.dark-mode {
-    background-color: #000;
+/* LABEL DO TEMA */
+.switch-label {
+    position: absolute;
+    top: -30px;
+    right: 0;
+    font-size: 14px;
+    color: #000;
+    font-weight: bold;
+}
+
+body.dark-mode .switch-label {
     color: #fff;
 }
 
-body.light-mode {
-    background-color: #fff;
-    color: #000;
+/* Área de inserção das tarefas - modo claro */
+.input-task {
+    background-color: #f9f9f9; /* cor clara */
+    color: #333; /* texto escuro */
+    border: 1px solid #ccc;
 }
 
+/* Área de inserção das tarefas - modo escuro */
+.dark-mode .input-task {
+    background-color: #333; /* cor escura */
+    color: #f9f9f9; /* texto claro */
+    border: 1px solid #555;
+}
 
-/* MODO DARK OR LIGHT */
+/* Área de inserção das tarefas - modo claro */
+.input-task {
+    background-color: #f9f9f9; /* cor clara */
+    color: #333; /* texto escuro */
+    border: 1px solid #ccc;
+}
+
+/* Área de inserção das tarefas - modo escuro */
+.dark-mode .input-task {
+    background-color: #333; /* cor escura */
+    color: #f9f9f9; /* texto claro */
+    border: 1px solid #555;
+}
+
+/* Container e lista de tarefas no modo claro */
+.container {
+    background-color: #fff; /* cor clara */
+    color: #333;
+}
+
+/* Container e lista de tarefas no modo escuro */
+.dark-mode .container {
+    background-color: #222; /* cor escura */
+    color: #f1f1f1;
+}
+
+/* Itens da lista de tarefas */
+.task {
+    background-color: #fafafa; /* cor clara padrão */
+    color: #333;
+}
+
+.dark-mode .task {
+    background-color: #444; /* cor escura no modo escuro */
+    color: #fff;
+}
+
